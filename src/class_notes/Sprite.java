@@ -12,6 +12,8 @@ public class Sprite extends Rect
 	
 	boolean selected = false;
 	
+	boolean physics = false;
+	
 	public Sprite(String name, int x, int y, int w, int h, int direction, String[] pose)
 	{
 		super(x, y, w, h);
@@ -32,36 +34,36 @@ public class Sprite extends Rect
 		this.direction = direction;
 	}
 	
-	public void moveUP(int dy)
+	public void goUP(int dy)
 	{
-		y -= dy;
+		vy = dy;
 		
 		direction = UP;
 		
 		moving = true;
 	}
 	
-	public void moveDN(int dy)
+	public void goDN(int dy)
 	{
-		y += dy;
+		y = dy;
 
 		direction = DN;
 
 		moving = true;
 	}
 	
-	public void moveLT(int dx)
+	public void goLT(int dx)
 	{
-		x -= dx;
+		vx = dx;
 
 		direction = LT;
 		
 		moving = true;
 	}
 	
-	public void moveRT(int dx)
+	public void goRT(int dx)
 	{
-		x += dx;
+		vx = dx;
 		
 		direction = RT;
 
@@ -69,7 +71,17 @@ public class Sprite extends Rect
 
 	}
 	
-	
+	public void move() 
+	{
+		x += vx;
+		y += vy;
+		
+		if(physics == false)
+		{
+			vx = 0;
+			vy = 0;			
+		}
+	}
 	
 	public void draw(Graphics g)
 	{

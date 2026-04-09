@@ -12,8 +12,7 @@ public class Rect
 	int vx;
 	int vy;
 	
-	int direction;
-	
+	int direction = DN;
 
 	// Constant values that are used to index the
 	// Animation array to select the correct
@@ -27,7 +26,6 @@ public class Rect
 	static final int DL = 5;
 	static final int UR = 6;
 	static final int DR = 7;
-	
 	
 	boolean selected = false;
 	
@@ -64,7 +62,7 @@ public class Rect
 	{
 		int penetration = r.x + r.w -x;
 		
-		if(penetration < 6) 
+		if(penetration < w/2) 
 		{
 			r.x -= penetration + 1;
 		}
@@ -74,7 +72,7 @@ public class Rect
 	{
 		int penetration = x + w - r.x + 1;
 		
-		if(penetration < 6) 
+		if(penetration < w/2) 
 		{			
 			r.x += penetration + 1;
 		} 
@@ -84,7 +82,7 @@ public class Rect
 	{
 		int penetration = r.y + r.h - y;
 		
-		if(penetration < 6) 
+		if(penetration < h/2) 
 		{			
 			r.y -= penetration + 1;
 		}
@@ -94,7 +92,7 @@ public class Rect
 	{
 		int penetration = y + h - r.y;
 		
-		if(penetration < 6) 
+		if(penetration < h/2) 
 		{			
 			r.y += penetration + 1;
 		}
@@ -103,10 +101,10 @@ public class Rect
 	
 	public void pushes(Rect r)
 	{
-		if(r.direction == UP)  pushDown(r);
-		if(r.direction == DN)  pushUp(r);
-		if(r.direction == LT)  pushRight(r);
-		if(r.direction == RT)  pushLeft(r);		
+		pushDown(r);
+		pushUp(r);
+		pushRight(r);
+		pushLeft(r);		
 	}
 	
 	public boolean overlaps(Rect r)
