@@ -12,7 +12,22 @@ public class Camera {
 	
 	public static void moveLeft(int dx) 
 	{
-		
+		x -= dx;
+	}
+	
+	public static void moveRight(int dx) 
+	{
+		x += dx;
+	}
+	
+	public static void moveUp(int dy) 
+	{
+		x -= dy;
+	}
+	
+	public static void moveDown(int dy) 
+	{
+		x += dy;
 	}
 	
 }

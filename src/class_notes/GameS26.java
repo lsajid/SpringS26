@@ -10,15 +10,15 @@ import java.awt.event.*;
 public class GameS26 extends GameBase
 {	
 	
-	Soldier s = new Soldier(100, 800, Soldier.LT);
+	Soldier s = new Soldier(100, 750, Soldier.LT);
 	
 	Rect r1 = new Rect(40, 80, 20, 840);
 	Rect r2 = new Rect(0, 40, 1600, 20);
 	Rect r3 = new Rect(500, 200, 600, 340);
 	
-	ImageLayer mountains 	= new ImageLayer("mountains.gif", 0,0, 1600, 900);
-	ImageLayer houses 		= new ImageLayer("houses.gif", 0, 0, 1600, 900);
-	ImageLayer trees 		= new ImageLayer("trees.gif", 0, 0, 1600, 900);
+	ImageLayer mountains 	= new ImageLayer("mountains.gif", 0,0, 500, 1600, 900);
+	ImageLayer houses 		= new ImageLayer("houses.gif", 0, 0, 5, 1600, 900);
+	ImageLayer trees 		= new ImageLayer("trees.gif", 0, 0, 2, 1600, 900);
 	
 	public void inGameLoop()
 	{
@@ -30,24 +30,22 @@ public class GameS26 extends GameBase
 
 		if(pressing[UP])
 		{
-			
+			Camera.moveUp(6);
 		}
 	
 		if(pressing[DN]) 
 		{
-			
+			Camera.moveDown(6);
 		}
 		if(pressing[LT])   
 		{
-			mountains.moveRight(6);
-			houses.moveRight(6);
-			trees.moveRight(6);
+			Camera.moveLeft(6);
+			s.moveLT(6);
 		}
 		if(pressing[RT])   
 		{
-			mountains.moveLeft(6);
-			houses.moveLeft(6);
-			trees.moveLeft(6);
+			Camera.moveRight(6);
+			s.moveRT(6);
 		}
 		
 		s.move();
