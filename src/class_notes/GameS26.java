@@ -12,11 +12,11 @@ public class GameS26 extends GameBase
 	
 	Soldier s = new Soldier(100, 100, Soldier.LT);
 	
-	Rect r1 = new Rect(800, 100, 20, 500);
-	Rect r2 = new Rect(800, 100, 600, 20);
-	Rect r3 = new Rect(20, 100, 800, 20);
-	Rect r4 = new Rect(800, 100, 20, 800);
+	Rect r1 = new Rect(40, 80, 20, 840);
+	Rect r2 = new Rect(0, 40, 1600, 20);
+	Rect r3 = new Rect(500, 200, 600, 340);
 	
+	Image pool = Toolkit.getDefaultToolkit().getImage("ZeldaPool.png");
 	
 	public void inGameLoop()
 	{
@@ -46,8 +46,8 @@ public class GameS26 extends GameBase
 	
 	public void paint(Graphics g)
 	{	
-		g.setColor(Color.BLACK);
-		
+		g.setColor(Color.WHITE);
+		g.drawImage(pool, 0, 0, 1600, 900, null);
 		s.draw(g);
 		
 		
