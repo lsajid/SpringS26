@@ -19,18 +19,31 @@ public class GameS26 extends GameBase
 			// Code that executes 60 times per second
 			
 			// Move User Controlled Objects
-			if(pressing[UP])   s.moveUP(6);
-			if(pressing[DN])   s.moveDN(6);
-			if(pressing[LT])   s.moveLT(6);
-			if(pressing[RT])   s.moveRT(6);
+			if(pressing[UP]) {
+				s.moveUP(6);	
+				if(s.overlaps(r1)) r1.pushDown(s);
+			}
+			if(pressing[DN]) {				
+				s.moveDN(6);
+				if(s.overlaps(r1)) r1.pushUp(s);
+			}
+			if(pressing[LT])
+			{
+				s.moveLT(6);	
+				if(s.overlaps(r1)) r1.pushRight(s);
+			}
+			if(pressing[RT])   
+			{
+				s.moveRT(6);				
+				if(s.overlaps(r1)) r1.pushLeft(s);
+			}
 
 			
 			// Move Computer Controlled Objects
 
 			
 			// Handle Collisions
-			if(r1.overlaps(s)) r1.pushes(s);
-			if(r2.overlaps(s)) r2.pushes(s);
+	
 			
 			
 			// Update the Screen
@@ -42,9 +55,9 @@ public class GameS26 extends GameBase
 	{	
 		s.draw(g);
 		r1.draw(g);		
-		r2.draw(g);
+//		r2.draw(g);
 		//r3.draw(g);
-		r4.draw(g);
+//		r4.draw(g);
 	}
 	
 	
