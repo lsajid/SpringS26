@@ -11,10 +11,7 @@ public class GameS26 extends GameBase
 {	
 	
 	Soldier s = new Soldier(100, 750, Soldier.LT);
-	
-	Rect r1 = new Rect(40, 80, 20, 840);
-	Rect r2 = new Rect(0, 40, 1600, 20);
-	Rect r3 = new Rect(500, 200, 600, 340);
+
 	
 	ImageLayer mountains 	= new ImageLayer("mountains.gif", 0,0, 500, 1600, 900);
 	ImageLayer houses 		= new ImageLayer("houses.gif", 0, 0, 5, 1600, 900);
@@ -54,10 +51,6 @@ public class GameS26 extends GameBase
 
 		
 		// Handle Collisions
-		
-		if(r1.overlaps(s))  r1.pushes(s);
-		if(r2.overlaps(s))  r2.pushes(s);
-		if(r3.overlaps(s))  r3.pushes(s);
 		
 		// Update the Screen
 	}

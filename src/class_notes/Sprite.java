@@ -123,11 +123,11 @@ public class Sprite extends Rect
 	{
 		if(moving)
 		{
-			g.drawImage(animation[direction].nextImage(), x, y, w, h, null);
+			g.drawImage(animation[direction].nextImage(), x - Camera.x, y - Camera.y, w, h, null);
 		}
 		else
 		{
-			g.drawImage(animation[direction].stillImage(), x, y, w, h, null);
+			g.drawImage(animation[direction].stillImage(), x - Camera.x, y - Camera.y, w, h, null);
 		}		
 		
 		moving = false;
