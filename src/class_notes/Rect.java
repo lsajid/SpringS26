@@ -9,6 +9,9 @@ public class Rect
 	int w;
 	int h;
 	
+	int vx;
+	int vy;
+	
 	int direction;
 	
 
@@ -59,22 +62,42 @@ public class Rect
 	
 	public void pushLeft(Rect r)
 	{
-		r.x -= (r.x + r.w - x + 1);
+		int penetration = r.x + r.w -x;
+		
+		if(penetration < 6) 
+		{
+			r.x -= penetration + 1;
+		}
 	}
 	
 	public void pushRight(Rect r)
 	{
-		r.x += (x + w - r.x + 1);
+		int penetration = x + w - r.x + 1;
+		
+		if(penetration < 6) 
+		{			
+			r.x += penetration + 1;
+		} 
 	}
 	
 	public void pushUp(Rect r)
 	{
-		r.y -= (r.y + r.h - y + 1);
+		int penetration = r.y + r.h - y;
+		
+		if(penetration < 6) 
+		{			
+			r.y -= penetration + 1;
+		}
 	}
 	
 	public void pushDown(Rect r)
 	{
-		r.y += (y + h - r.y + 1);
+		int penetration = y + h - r.y;
+		
+		if(penetration < 6) 
+		{			
+			r.y += penetration + 1;
+		}
 	}
 	
 	

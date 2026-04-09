@@ -2,7 +2,7 @@ package class_notes;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
-//01:12:01
+//00:55:12
 
 public class GameS26 extends GameBase
 {		
@@ -21,29 +21,31 @@ public class GameS26 extends GameBase
 			// Move User Controlled Objects
 			if(pressing[UP]) {
 				s.moveUP(6);	
-				if(s.overlaps(r1)) r1.pushDown(s);
+				
 			}
 			if(pressing[DN]) {				
 				s.moveDN(6);
-				if(s.overlaps(r1)) r1.pushUp(s);
+				
 			}
 			if(pressing[LT])
 			{
 				s.moveLT(6);	
-				if(s.overlaps(r1)) r1.pushRight(s);
+				
 			}
 			if(pressing[RT])   
 			{
 				s.moveRT(6);				
-				if(s.overlaps(r1)) r1.pushLeft(s);
+				
 			}
 
 			
 			// Move Computer Controlled Objects
-
-			
+			if(s.overlaps(r1)) r1.pushes(s);
+			if(s.overlaps(r1)) r1.pushes(s);
+			if(s.overlaps(r1)) r1.pushes(s);
+			if(s.overlaps(r1)) r1.pushes(s);
 			// Handle Collisions
-	
+			
 			
 			
 			// Update the Screen
