@@ -9,6 +9,23 @@ public class Rect
 	int w;
 	int h;
 	
+	int direction;
+	
+
+	// Constant values that are used to index the
+	// Animation array to select the correct
+	// Animation for the direction the solder
+	// is moving.
+	static final int UP = 0;
+	static final int DN = 1;
+	static final int LT = 2;
+	static final int RT = 3;
+	static final int UL = 4;
+	static final int DL = 5;
+	static final int UR = 6;
+	static final int DR = 7;
+	
+	
 	boolean selected = false;
 	
 	public Rect(int x, int y, int w, int h)
@@ -38,6 +55,35 @@ public class Rect
 	public void toggle()
 	{
 		selected = ! selected;
+	}
+	
+	public void pushLeft(Rect r)
+	{
+		r.x -= (r.x + r.w - x + 1);
+	}
+	
+	public void pushRight(Rect r)
+	{
+		r.x += (x + w - r.x + 1);
+	}
+	
+	public void pushUp(Rect r)
+	{
+		r.y -= (r.y + r.h - y + 1);
+	}
+	
+	public void pushDown(Rect r)
+	{
+		r.y += (y + h - r.y + 1);
+	}
+	
+	
+	public void pushes(Rect r)
+	{
+		if(r.direction == UP)  pushDown(r);
+		if(r.direction == DN)  pushUp(r);
+		if(r.direction == LT)  pushRight(r);
+		if(r.direction == RT)  pushLeft(r);		
 	}
 	
 	public boolean overlaps(Rect r)

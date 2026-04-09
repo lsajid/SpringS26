@@ -2,13 +2,17 @@ package class_notes;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
-//00:52:01
+//01:12:01
 
 public class GameS26 extends GameBase
 {		
 	
 	Soldier s = new Soldier(100, 100, Soldier.LT);
-	Rect r = new Rect(800, 100, 20, 300);
+	
+	Rect r1 = new Rect(800, 100, 20, 300);
+	Rect r2 = new Rect(800, 100, 600, 300);
+	Rect r3 = new Rect(800, 100, 20, 300);
+	Rect r4 = new Rect(800, 100, 20, 300);
 	
 	public void inGameLoop()
 	{
@@ -25,35 +29,23 @@ public class GameS26 extends GameBase
 
 			
 			// Handle Collisions
-			if(s.overlaps(r)) s.x -= (s.x +s.w -r.x);
+			if(r1.overlaps(s)) r1.pushes(s);
+			if(r2.overlaps(s)) r2.pushes(s);
 			
 			
 			// Update the Screen
-
+			
 	}
 	
 	
 	public void paint(Graphics g)
 	{	
 		s.draw(g);
-		r.draw(g);		
-		
+		r1.draw(g);		
+		r2.draw(g);
+		//r3.draw(g);
+		r4.draw(g);
 	}
 	
-	public void mouseDragged(MouseEvent e)
-	{
-		int nx = e.getX();
-		int ny = e.getY();
-		
-		int w = nx - mx;
-		int h = ny - my;
-		
-	}
-	
-	public void mousePressed(MouseEvent e)
-	{
-		mx = e.getX();
-		my = e.getY();
-	}
 	
 }

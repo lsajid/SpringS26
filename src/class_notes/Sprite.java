@@ -6,26 +6,7 @@ public class Sprite extends Rect
 {
 	String name;
 	
-	int x;
-	int y;
-	
-	int w;
-	int h;
-	
-	int direction;
-	
 	boolean moving = false;
-	
-	
-	// Constant values that are used to index the
-	// Animation array to select the correct
-	// Animation for the direction the solder
-	// is moving.
-	static final int UP = 0;
-	static final int DN = 1;
-	static final int LT = 2;
-	static final int RT = 3;
-	
 	
 	Animation[] animation = new Animation[4];
 	
