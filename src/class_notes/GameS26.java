@@ -16,7 +16,7 @@ public class GameS26 extends GameBase
 	Rect r2 = new Rect(0, 40, 1600, 20);
 	Rect r3 = new Rect(500, 200, 600, 340);
 	
-	Image pool = Toolkit.getDefaultToolkit().getImage("ZeldaPool.png");
+	Background background = new Background("ZeldaPool.png", 1600, 900);
 	
 	public void inGameLoop()
 	{
@@ -47,14 +47,9 @@ public class GameS26 extends GameBase
 	public void paint(Graphics g)
 	{	
 		g.setColor(Color.WHITE);
-		g.drawImage(pool, 0, 0, 1600, 900, null);
+		
+		background.draw(g);
 		s.draw(g);
-		
-		
-		r1.draw(g);
-		r2.draw(g);
-		r3.draw(g);
-		//r4.draw(g);
 	}
 	
 	
