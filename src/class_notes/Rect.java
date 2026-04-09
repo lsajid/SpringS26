@@ -9,11 +9,12 @@ public class Rect
 	int w;
 	int h;
 	
+
 	int vx;
 	int vy;
 	
 	int direction = DN;
-
+	
 	// Constant values that are used to index the
 	// Animation array to select the correct
 	// Animation for the direction the solder
@@ -26,6 +27,7 @@ public class Rect
 	static final int DL = 5;
 	static final int UR = 6;
 	static final int DR = 7;
+	
 	
 	boolean selected = false;
 	
@@ -60,42 +62,38 @@ public class Rect
 	
 	public void pushLeft(Rect r)
 	{
-		int penetration = r.x + r.w -x;
+		int penetration = r.x + r.w - x;
 		
-		if(penetration < w/2) 
-		{
+		if(penetration < 10)
+			
 			r.x -= penetration + 1;
-		}
 	}
 	
 	public void pushRight(Rect r)
 	{
-		int penetration = x + w - r.x + 1;
+		int penetration = x + w - r.x;
 		
-		if(penetration < w/2) 
-		{			
+		if(penetration < 10)
+			
 			r.x += penetration + 1;
-		} 
 	}
 	
 	public void pushUp(Rect r)
 	{
-		int penetration = r.y + r.h - y;
+		int penetration = r.y + r.h - y ;
 		
-		if(penetration < h/2) 
-		{			
+		if(penetration < 10)
+			
 			r.y -= penetration + 1;
-		}
 	}
 	
 	public void pushDown(Rect r)
 	{
 		int penetration = y + h - r.y;
 		
-		if(penetration < h/2) 
-		{			
+		if(penetration < 10)
+			
 			r.y += penetration + 1;
-		}
 	}
 	
 	
@@ -138,3 +136,4 @@ public class Rect
 	
 }	
 	
+
