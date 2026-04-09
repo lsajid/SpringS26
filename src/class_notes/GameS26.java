@@ -10,25 +10,47 @@ import java.awt.event.*;
 public class GameS26 extends GameBase
 {	
 	
-	Soldier s = new Soldier(100, 100, Soldier.LT);
+	Soldier s = new Soldier(100, 800, Soldier.LT);
 	
 	Rect r1 = new Rect(40, 80, 20, 840);
 	Rect r2 = new Rect(0, 40, 1600, 20);
 	Rect r3 = new Rect(500, 200, 600, 340);
 	
-	Background background = new Background("ZeldaPool.png", 1600, 900);
+	ImageLayer mountains 	= new ImageLayer("mountains.gif", 0,0, 1600, 900);
+	ImageLayer houses 		= new ImageLayer("houses.gif", 0, 0, 1600, 900);
+	ImageLayer trees 		= new ImageLayer("trees.gif", 0, 0, 1600, 900);
 	
 	public void inGameLoop()
 	{
 		// Move User Controlled Objects
-		if(pressing[UP])   s.goUP(6);
-		if(pressing[DN])   s.goDN(6);
-		if(pressing[LT])   s.goLT(6);
-		if(pressing[RT])   s.goRT(6);
+//		if(pressing[UP])   s.goUP(6);
+//		if(pressing[DN])   s.goDN(6);
+//		if(pressing[LT])   s.goLT(6);
+//		if(pressing[RT])   s.goRT(6);
 
-		s.move();
+		if(pressing[UP])
+		{
+			
+		}
+	
+		if(pressing[DN]) 
+		{
+			
+		}
+		if(pressing[LT])   
+		{
+			mountains.moveRight(6);
+			houses.moveRight(6);
+			trees.moveRight(6);
+		}
+		if(pressing[RT])   
+		{
+			mountains.moveLeft(6);
+			houses.moveLeft(6);
+			trees.moveLeft(6);
+		}
 		
-
+		s.move();
 		
 		// Move Computer Controlled Objects
 
@@ -48,7 +70,10 @@ public class GameS26 extends GameBase
 	{	
 		g.setColor(Color.WHITE);
 		
-		background.draw(g);
+		mountains.draw(g);
+		houses.draw(g);
+		trees.draw(g);
+		
 		s.draw(g);
 	}
 	
