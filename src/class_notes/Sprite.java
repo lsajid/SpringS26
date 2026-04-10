@@ -10,6 +10,8 @@ public class Sprite extends Rect
 	
 	boolean physics = false;
 	
+	double g = 0.8;
+	
 	
 	
 	Animation[] animation = new Animation[4];
@@ -36,6 +38,8 @@ public class Sprite extends Rect
 		x += vx;		
 		y += vy;
 		
+		vy += g;
+		
 		if (physics == false)
 		{
 			vx = 0;
@@ -43,6 +47,11 @@ public class Sprite extends Rect
 		}
 	}
 	
+	public void jump() 
+	{
+		vy = -20;
+		moving = true;
+	}
 	
 	public void goUP(int dy)
 	{
@@ -123,11 +132,11 @@ public class Sprite extends Rect
 	{
 		if(moving)
 		{
-			g.drawImage(animation[direction].nextImage(), x - Camera.x, y - Camera.y, w, h, null);
+			g.drawImage(animation[direction].nextImage(), (int)(x - Camera.x), (int)(y - Camera.y), w, h, null);
 		}
 		else
 		{
-			g.drawImage(animation[direction].stillImage(), x - Camera.x, y - Camera.y, w, h, null);
+			g.drawImage(animation[direction].stillImage(), (int)(x - Camera.x), (int)(y - Camera.y), w, h, null);
 		}		
 		
 		moving = false;

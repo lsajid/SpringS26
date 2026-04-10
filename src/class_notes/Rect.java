@@ -3,15 +3,15 @@ import java.awt.*;
 
 public class Rect
 {
-	int x;
-	int y;
+	double x;
+	double y;
 	
 	int w;
 	int h;
 	
 
-	int vx;
-	int vy;
+	double vx;
+	double vy;
 	
 	int direction = DN;
 	
@@ -62,7 +62,7 @@ public class Rect
 	
 	public void pushLeft(Rect r)
 	{
-		int penetration = r.x + r.w - x;
+		double penetration = r.x + r.w - x;
 		
 		if(penetration < 10)
 			
@@ -71,7 +71,7 @@ public class Rect
 	
 	public void pushRight(Rect r)
 	{
-		int penetration = x + w - r.x;
+		double penetration = x + w - r.x;
 		
 		if(penetration < 10)
 			
@@ -80,7 +80,7 @@ public class Rect
 	
 	public void pushUp(Rect r)
 	{
-		int penetration = r.y + r.h - y ;
+		double penetration = r.y + r.h - y ;
 		
 		if(penetration < 10)
 			
@@ -89,7 +89,7 @@ public class Rect
 	
 	public void pushDown(Rect r)
 	{
-		int penetration = y + h - r.y;
+		double penetration = y + h - r.y;
 		
 		if(penetration < 10)
 			
@@ -131,7 +131,7 @@ public class Rect
 	
 	public void draw(Graphics g)
 	{
-		g.drawRect(x, y, w, h);
+		g.drawRect((int)x, (int)y, w, h);
 	}
 	
 }	
